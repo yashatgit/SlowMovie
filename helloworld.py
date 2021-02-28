@@ -27,13 +27,13 @@ def generate_frame(in_filename, out_filename, time, width, height):
 
 
 # Ensure this is the correct import for your particular screen 
-from waveshare_epd import epd7in5bc_V2
+from waveshare_epd import epd7in5b_V2
 
 # Ensure this is the correct path to your video folder 
 viddir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Videos/')
 
 # Ensure this is the correct driver for your particular screen 
-epd = epd7in5bc_V2.EPD()
+epd = epd7in5b_V2.EPD()
 
 # Initialise and clear the screen 
 epd.init()
@@ -70,9 +70,10 @@ while 1:
     
     # Dither the image into a 1 bit bitmap (Just zeros and ones)
     pil_im = pil_im.convert(mode='1',dither=Image.FLOYDSTEINBERG)
+    image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
 
     # display the image 
-    epd.display(epd.getbuffer(pil_im), epd.getbuffer(pil_im))
+    epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
     print('Diplaying frame %d of %s' %(frame,currentVideo))
     
     # Wait for 10 seconds 
