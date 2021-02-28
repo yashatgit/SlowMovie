@@ -16,7 +16,7 @@ import ffmpeg
 import argparse
 
 # Ensure this is the correct import for your particular screen 
-from waveshare_epd import epd7in5_V2
+from waveshare_epd import epd7in5bc_V2
 
 def generate_frame(in_filename, out_filename, time, width, height):    
     (
@@ -128,7 +128,7 @@ if args.file:
 print("The current video is %s" %currentVideo)
 
 # Ensure this is the correct driver for your particular screen 
-epd = epd7in5_V2.EPD()
+epd = epd7in5bc_V2.EPD()
 
 # Initialise and clear the screen 
 epd.init()
@@ -172,10 +172,13 @@ while 1:
     pil_im = Image.open("grab.jpg")
     
     # Dither the image into a 1 bit bitmap (Just zeros and ones)
-    pil_im = pil_im.convert(mode='1',dither=Image.FLOYDSTEINBERG)
+    pil_im = pil_im.convert(mode='1', dither=Image.FLOYDSTEINBERG)
+    
+    # since we don't want to paing anything on red. Keep it to mininimum
+    image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
 
     # display the image 
-    epd.display(epd.getbuffer(pil_im))
+    epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
     print('Diplaying frame %d of %s' %(frame,currentVideo))
     
     currentPosition = currentPosition + increment 
@@ -210,5 +213,5 @@ while 1:
 
 epd.sleep()
     
-epd7in5.epdconfig.module_exit()
+epd7in5bc_V2.epdconfig.module_exit()
 exit()
