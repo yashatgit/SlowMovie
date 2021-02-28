@@ -72,7 +72,7 @@ while 1:
     pil_im = pil_im.convert(mode='1',dither=Image.FLOYDSTEINBERG)
 
     # display the image 
-    epd.display(epd.getbuffer(pil_im), 0)
+    epd.display(epd.getbuffer(pil_im), epd.getbuffer(pil_im))
     print('Diplaying frame %d of %s' %(frame,currentVideo))
     
     # Wait for 10 seconds 
