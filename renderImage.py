@@ -18,13 +18,13 @@ viddir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Videos/')
 epd = epd7in5bc_V2.EPD()
 
 
-# Initialise and clear the screen
-epd.init()
-epd.Clear()
-
 try:
     width = 800
     height = 480
+
+    # Initialise and clear the screen
+    epd.init()
+    epd.Clear()
 
     # Open grab.jpg in PIL
     pil_im = Image.open("photo.jpg")
@@ -33,7 +33,9 @@ try:
     pil_im = pil_im.convert(mode='1', dither=Image.FLOYDSTEINBERG)
 
     # since we don't want to paing anything on red. Keep it to mininimum
-    image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
+    # image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
+    image_Other = pil_im.convert(
+        mode='1', dither=Image.FLOYDSTEINBERG)  # 255: clear the frame
 
     # display the image
     epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
