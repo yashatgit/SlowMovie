@@ -22,7 +22,7 @@ epd = epd7in5bc_V2.EPD()
 epd.init()
 epd.Clear()
 
-while 1:
+try:
     width = 800
     height = 480
 
@@ -40,8 +40,11 @@ while 1:
 
     # Wait for 10 seconds
     time.sleep(10)
+    epd.sleep()
 
 # NB We should run sleep() while the display is resting more often, but there's a bug in the driver that's slightly fiddly to fix. Instead of just sleeping, it completely shuts down SPI communication
-epd.sleep()
-epd7in5.epdconfig.module_exit()
-exit()
+
+except KeyboardInterrupt:
+    logging.info("ctrl + c:")
+    epd7in5.epdconfig.module_exit()
+    exit()
