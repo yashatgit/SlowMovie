@@ -37,7 +37,6 @@ while 1:
 
     # display the image
     epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
-    print('Diplaying frame %d of %s' % (frame, currentVideo))
 
     # Wait for 10 seconds
     time.sleep(10)
