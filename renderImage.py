@@ -30,7 +30,7 @@ try:
 
     # Open grab.jpg in PIL
     # Dither the image into a 1 bit bitmap (Just zeros and ones)
-    pil_im = Image.open("photo_1.jpg")
+    pil_im = Image.open("photo_1.bmp")
     pil_im = pil_im.convert(mode='1', dither=Image.FLOYDSTEINBERG)
 
     # # since we don't want to paing anything on red. Keep it to mininimum
