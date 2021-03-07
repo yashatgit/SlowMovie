@@ -26,19 +26,20 @@ try:
     epd.init()
     epd.Clear()
 
-    # Open grab.jpg in PIL
-    pil_im = Image.open("photo.jpg")
+    frame_red = [0] * (epd.width * epd.height / 8)
 
+    # Open grab.jpg in PIL
     # Dither the image into a 1 bit bitmap (Just zeros and ones)
+    pil_im = Image.open("photo.jpg")
     pil_im = pil_im.convert(mode='1', dither=Image.FLOYDSTEINBERG)
 
-    # since we don't want to paing anything on red. Keep it to mininimum
-    image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
-    # image_Other = pil_im.convert(
-    #     mode='1', dither=Image.FLOYDSTEINBERG)  # 255: clear the frame
+    # # since we don't want to paing anything on red. Keep it to mininimum
+    # image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
+    # # image_Other = pil_im.convert(
+    # #     mode='1', dither=Image.FLOYDSTEINBERG)  # 255: clear the frame
 
     # display the image
-    epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
+    epd.display(epd.getbuffer(pil_im), frame_red)
 
     # Wait for 10 seconds
     time.sleep(10)
