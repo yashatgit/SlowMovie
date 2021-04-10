@@ -30,7 +30,7 @@ try:
 
     # Open grab.jpg in PIL
     # Dither the image into a 1 bit bitmap (Just zeros and ones)
-    pil_im = Image.open(sys.argv[0])
+    pil_im = Image.open(sys.argv[1])
 
     # https://pillow.readthedocs.io/en/stable/handbook/concepts.html#concept-modes
     pil_im = pil_im.convert(mode='1', dither=Image.FLOYDSTEINBERG)
