@@ -23,7 +23,7 @@ try:
     pil_im = Image.open(sys.argv[1])
     pil_im = pil_im.convert(mode='1', dither=Image.FLOYDSTEINBERG)
 
-    pil_im.save('convertedImage.png')
+    pil_im.save('pics/convertedImage.png')
 
     # # since we don't want to paing anything on red. Keep it to mininimum
     image_Other = Image.new('1', (height, width), 255)  # 255: clear the frame
