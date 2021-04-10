@@ -12,3 +12,9 @@ https://medium.com/s/story/very-slow-movie-player-499f76c48b62
 
 https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)
 epd_7in5b_V2_test.py
+
+```python
+#!/usr/bin/python
+
+convertImage.py pics/image.jpg
+```
