@@ -37,7 +37,7 @@ def generate_frame(in_filename, out_filename, time, width, height):
 viddir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Videos/')
 
 # Ensure this is the correct driver for your particular screen
-epd = epd7in5bc_V2.EPD()
+epd = epd7in5b_V2.EPD()
 
 # Initialise and clear the screen
 epd.init()

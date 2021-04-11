@@ -134,7 +134,7 @@ if args.file:
 print("The current video is %s" % currentVideo)
 
 # Ensure this is the correct driver for your particular screen
-epd = epd7in5bc_V2.EPD()
+epd = epd7in5b_V2.EPD()
 
 # Initialise and clear the screen
 epd.init()
@@ -216,5 +216,5 @@ while 1:
 
 epd.sleep()
 
-epd7in5bc_V2.epdconfig.module_exit()
+epd7in5b_V2.epdconfig.module_exit()
 exit()
