@@ -9,7 +9,7 @@ import random
 from PIL import Image
 
 # Ensure this is the correct import for your particular screen
-from waveshare_epd import epd7in5bc_V2
+from waveshare_epd import epd7in5b_V2
 
 # Ensure this is the correct path to your video folder
 viddir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Videos/')
