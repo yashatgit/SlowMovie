@@ -23,6 +23,12 @@ python epd_7in5b_V2_test.py
 python convertImage.py pics/image.jpg
 ```
 
+### My MOdel
+
+epd*7in5b_V2
+https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT*(B)
+wiredConnection: https://peppe8o.com/raspberry-pi-zero-pinout/, https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT_(B)
+
 ### References
 
 Full writeup of this project here:  
