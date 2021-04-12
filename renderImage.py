@@ -43,7 +43,8 @@ try:
 
     print('displaying image')
     # display the image
-    epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
+    # epd.display(epd.getbuffer(pil_im), epd.getbuffer(image_Other))
+    epd.display(epd.getbuffer(image_Other), epd.getbuffer(pil_im))
     print('displayed. going to sleep')
     # Wait for 10 seconds
     time.sleep(10)
