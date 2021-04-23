@@ -32,7 +32,7 @@ export default (req, res) => {
     // do error handling here
     if (!err) {
       console.log('Image saved!');
-      execWithPromise('python convertImage.py pics/uploaded_image.jpg').then(
+      execWithPromise('python displayImage.py pics/uploaded_image.jpg').then(
         () => {
           res.status(200).send({});
         }
