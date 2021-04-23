@@ -1,16 +1,13 @@
-import Head from "next/head";
-import useSWR from "swr";
-import { Switch } from "ui-neumorphism";
+import Head from 'next/head';
 
-import styles from "../styles/Home.module.css";
-import httpClient from "../utils/api";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import Player from '../components/Player';
+import Canvas from '../components/Canvas';
+import ImageUpload from '../components/ImageUpload';
+import Controls from '../components/Controls';
+import styles from '../styles/Home.module.css';
+import httpClient from '../utils/api';
 
 export default function Home() {
-  // const { data, error } = useSWR("/api/videos", fetcher);
-  // console.log(data);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -18,22 +15,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="theme--light">
+      <main className="">
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        <Switch color="var(--error)" checked label="Switch" />
-        <form method="post" encType="multipart/form-data" action="/api/upload">
-          <input type="file" accept="image/*" name="file" />
-          <input type="submit" value="Submit" />
-        </form>
-        <button
-          onClick={() => {
-            httpClient.post("action", { type: "shutdown", base: "shut" });
-          }}
-        >
-          Shutdown
-        </button>
+        <Player />
+        <ImageUpload />
+        <Canvas />
+        <Controls />
       </main>
     </div>
   );

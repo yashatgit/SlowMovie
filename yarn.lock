@@ -334,6 +334,11 @@ caniuse-lite@^1.0.30001173, caniuse-lite@^1.0.30001179:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001196.tgz#00518a2044b1abf3e0df31fadbe5ed90b63f4e64"
   integrity sha512-CPvObjD3ovWrNBaXlAIGWmg2gQQuJ5YhuciUOjPRox6hIQttu8O+b51dx6VIpIY9ESd2d0Vac1RKpICdG4rGUg==
 
+canvas-txt@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/canvas-txt/-/canvas-txt-3.0.0.tgz#47d84e8870201d21604cc2d2964be22c46360ec4"
+  integrity sha512-SrNIp4aaGsgddjQX7S0D8jDaYNaOkPjC/k6VjaaT3h1GZ5RonSvmoCv2FyQfNk9mPZto84C8sNURgEC8dsC/vA==
+
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -1200,6 +1205,11 @@ postcss@^7.0.32:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+prettier@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -1285,6 +1295,13 @@ raw-body@2.4.1:
     http-errors "1.7.3"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+react-canvas-txt@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-canvas-txt/-/react-canvas-txt-1.1.1.tgz#05eadb68563eae517e5ddc67560c500239e59bb0"
+  integrity sha512-16XExAfA0J3NjzGpWEUBHHnwvae3j+jKh8OHt/kiCNLSWU04xIQrD6B8nd38m6QcYriRE6L54AJ3Rrfqopg8OQ==
+  dependencies:
+    canvas-txt "^3.0.0"
 
 react-dom@17.0.1:
   version "17.0.1"

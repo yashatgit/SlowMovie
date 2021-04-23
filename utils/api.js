@@ -1,6 +1,6 @@
 class HttpClient {
   constructor(options = {}) {
-    this._baseURL = options.baseURL || "";
+    this._baseURL = options.baseURL || '';
     this._headers = options.headers || {};
   }
 
@@ -20,10 +20,16 @@ class HttpClient {
   }
 
   async _fetchJSON(endpoint, options = {}) {
-    const res = await fetch(this._baseURL + endpoint, {
+    const finalOptions = {
       ...options,
       headers: this._headers,
-    });
+    };
+
+    if (finalOptions.upload) {
+      delete finalOptions.headers['Content-Type'];
+    }
+
+    const res = await fetch(this._baseURL + endpoint, finalOptions);
 
     if (!res.ok) throw new Error(res.statusText);
 
@@ -36,7 +42,7 @@ class HttpClient {
   get(endpoint, options = {}) {
     return this._fetchJSON(endpoint, {
       ...options,
-      method: "GET",
+      method: 'GET',
     });
   }
 
@@ -44,7 +50,16 @@ class HttpClient {
     return this._fetchJSON(endpoint, {
       ...options,
       body: JSON.stringify(body),
-      method: "POST",
+      method: 'POST',
+    });
+  }
+
+  upload(endpoint, body, options = {}) {
+    return this._fetchJSON(endpoint, {
+      ...options,
+      upload: true,
+      body,
+      method: 'POST',
     });
   }
 
@@ -52,14 +67,14 @@ class HttpClient {
     return this._fetchJSON(endpoint, {
       parseResponse: false,
       ...options,
-      method: "DELETE",
+      method: 'DELETE',
     });
   }
 }
 
 const httpClient = new HttpClient({
-  baseURL: "/api/",
-  headers: { "Content-Type": "application/json" },
+  baseURL: '/api/',
+  headers: { 'Content-Type': 'application/json' },
 });
 
 export default httpClient;
