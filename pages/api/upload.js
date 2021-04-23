@@ -1,5 +1,5 @@
-import multer from "multer";
-import { execWithPromise } from "../../utils/cmdUtils";
+import multer from 'multer';
+import { execWithPromise } from '../../utils/cmdUtils';
 
 export const config = {
   api: {
@@ -17,7 +17,7 @@ export const config = {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "pics/");
+    cb(null, 'pics/');
   },
   filename: function (req, file, cb) {
     //cb(null, `uploaded_image.${file.originalname.split(".").pop()}`);
@@ -28,15 +28,15 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 export default (req, res) => {
-  upload.single("file")(req, {}, (err) => {
+  upload.single('file')(req, {}, (err) => {
     // do error handling here
     if (!err) {
-      console.log("Image saved!");
-      execWithPromise(
-        "/usr/local/opt/python@3.8/bin/python3.8 convertImage.py pics/uploaded_image.jpg"
-      ).then(() => {
-        res.status(200).send({});
-      });
+      console.log('Image saved!');
+      execWithPromise('python convertImage.py pics/uploaded_image.jpg').then(
+        () => {
+          res.status(200).send({});
+        }
+      );
     }
   });
 };

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "dev-i": "NODE_OPTIONS='--inspect' next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "copy-build": "yarn build && scp -r ./.next pi@192.168.29.30:/home/pi/SlowMovie/"
   },
   "dependencies": {
     "multer": "^1.4.2",
